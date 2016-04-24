@@ -8,18 +8,19 @@ import morgan from 'morgan';
 
 class Server {
   constructor() {
-    this.app = express();
+    let app = this.app = express();
 
-    this.app.use(morgan('combined'));
-    this.app.use(express.static('client/static/'));
-    this.app.set('views', 'client/pages');
-    this.app.set('view engine', 'pug');
+    app.set('port', (process.env.PORT || 3000));
+    app.use(morgan('combined'));
+    app.use(express.static('client/static/'));
+    app.set('views', 'client/pages');
+    app.set('view engine', 'pug');
 
     this.setupRoutes();
   }
 
   start() {
-    this.app.listen(3000, this.stats);
+    this.app.listen(this.app.get('port'), this.stats.bind(this));
   }
 
   stats(err) {
@@ -29,7 +30,7 @@ class Server {
       return;
     }
 
-    console.log('Server running on: http://localhost:3000');
+    console.log('Server running on: http://localhost:'+this.app.get('port'));
   }
 
   setupRoutes() {
