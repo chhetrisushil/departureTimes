@@ -33,7 +33,7 @@ class Server {
   }
 
   setupRoutes() {
-    var app = this.app;
+    let app = this.app;
 
     app.get('/', function(req, res) {
       res.redirect('/index');
@@ -45,6 +45,8 @@ class Server {
   }
 }
 
+// Initialise server
 var server = new Server();
 
+// start server
 server.start();
