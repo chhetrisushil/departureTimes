@@ -1,0 +1,7 @@
+set tabstop=2       " tab is 4 spaces
+set shiftwidth=2    " number of spaces to use for autoindenting
+set expandtab       " use appropriate number of spaces when tabbing
+let g:email="chhetrisushil@gmail.com"
+let g:username="Sushil Chhetri"
+let g:java_classpath="/usr/lib/jvm/java-8-openjdk-amd64/lib"
+let g:config_Beautifier={"js": {"indent_style": "space", "indent_size": 2}, "json": {"indent_style": "space", "indent_size": 2}}
