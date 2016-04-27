@@ -30,7 +30,7 @@ class Server {
       return;
     }
 
-    console.log('Server running on: http://localhost:'+this.app.get('port'));
+    console.log('Server running on: http://localhost:' + this.app.get('port'));
   }
 
   setupRoutes() {
