@@ -11,7 +11,7 @@
     "build": "NODE_ENV=prod webpack",
     "build-dev": "NODE_ENV=dev webpack --watch",
     "heroku-postbuild": "npm run build",
-    "report-coverage": "codecov"
+    "report-coverage": "codecov &lt; ./coverage/lcov/lcov.info"
   },
   "repository": {
     "type": "git",
