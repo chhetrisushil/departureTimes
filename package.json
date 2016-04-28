@@ -6,7 +6,7 @@
   "scripts": {
     "start": "babel-node ./server/server.js --presets es2015,stage-2",
     "dev": "nodemon ./server/server.js --exec babel-node --presets es2015,stage-2",
-    "test": "karma start --browsers PhantomJS",
+    "test": "karma start karma.config.js",
     "build": "webpack",
     "build-dev": "webpack --watch"
   },
