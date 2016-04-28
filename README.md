@@ -19,4 +19,4 @@ Gets departure time of buses based on user location
 * Run `npm test`
 * OR - `npm run test-dev` - to run tests on watch mode
 
-*NOTE*: Needs phantomjs-prebuilt installed globally that can be done by running `npm install phantomjs-prebuilt -g` and also you might have to set `PHANTOMJS_BIN` environment variable that can be done by `export PHANTOMJS_BIN=$(which phantomjs)`
+**NOTE**: Needs phantomjs-prebuilt installed globally that can be done by running `npm install phantomjs-prebuilt -g` and also you might have to set `PHANTOMJS_BIN` environment variable that can be done by `export PHANTOMJS_BIN=$(which phantomjs)`
