@@ -15,13 +15,13 @@ module.exports = function(config) {
 
 
     // list of files / patterns to load in the browser
-    // files: [
+    files: [
     //   {pattern: './node_modules/phantomjs-polyfill/bind-polyfill.js', included: true},
     //   {pattern: 'src/HTML5#<{(||)}>#publisher_core.js', included: true},
     //   {pattern: 'src/HTML5#<{(||)}>#pluginManager.js', included: true},
     //   {pattern: 'src/HTML5#<{(||)}>#*.js', included: true},
-    //   {pattern: 'test#<{(||)}>#*.js', included: true}
-    // ],
+      {pattern: 'test/**/*.js', included: true}
+    ],
 
 
     // list of files to exclude
