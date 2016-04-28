@@ -74,8 +74,10 @@ module.exports = function(config) {
     concurrency: Infinity,
 
     coverageReporter: {
-      type: 'html',
-      dir: 'coverage/'
+      reporters: [
+        {type: 'html', dir: 'coverage/'},
+        {type: 'lcovonly', dir: 'coverage/'}
+      ]
     }
   });
 };

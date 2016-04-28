@@ -10,7 +10,8 @@
     "test-dev": "NODE_ENV=test karma start karma.config.js",
     "build": "NODE_ENV=prod webpack",
     "build-dev": "NODE_ENV=dev webpack --watch",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run build",
+    "report-coverage": "codecov"
   },
   "repository": {
     "type": "git",
@@ -35,6 +36,7 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
+    "codecov": "^1.0.1",
     "isparta": "^4.0.0",
     "isparta-loader": "^2.0.0",
     "karma": "^0.13.22",
