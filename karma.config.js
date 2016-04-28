@@ -2,6 +2,9 @@
  * karma.config.js
  * Copyright (C) 2016 Sushil Chhetri <chhetrisushil@gmail.com>
  */
+var webpackConfig = require('./webpack.config.js');
+webpackConfig.entry = {};
+
 module.exports = function(config) {
   config.set({
 
@@ -16,13 +19,14 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-    //   {pattern: './node_modules/phantomjs-polyfill/bind-polyfill.js', included: true},
-    //   {pattern: 'src/HTML5#<{(||)}>#publisher_core.js', included: true},
-    //   {pattern: 'src/HTML5#<{(||)}>#pluginManager.js', included: true},
-    //   {pattern: 'src/HTML5#<{(||)}>#*.js', included: true},
-      {pattern: 'test/**/*.js', included: true}
+      './client/static/js/app/app.js',
+      './test/**/*.js'
     ],
 
+    webpack: webpackConfig,
+    webpackMiddleware: {
+      noInfo: true
+    },
 
     // list of files to exclude
     exclude: [
@@ -32,7 +36,8 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-        './client/static/es6/**/*.js': ['coverage']
+      './client/static/js/app/app.js': ['webpack', 'sourcemap', 'coverage'],
+      './test/**/*.js': ['webpack', 'sourcemap']
     },
 
 
@@ -61,7 +66,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['PhantomJS'],
+    browsers: ['Chrome'],
 
 
     // Continuous Integration mode

@@ -11,19 +11,27 @@ module.exports = {
     filename: 'app.js'
   },
   module: {
-    loaders: [
+    preLoaders: [
+      // instrument only testing sources with Istanbul
       {
-        loader: 'babel-loader',
-        query: {
-          presets: ['es2015', 'stage-2']
-        }
+        test: /\.js$/,
+        include: './client/static/es6',
+        loader: 'isparta'
       }
-    ]
+    ],
+    loaders: [{
+      loader: 'babel-loader',
+      query: {
+        presets: ['es2015', 'stage-2']
+      }
+    }]
   },
   plugins: [
     new webpack.NoErrorsPlugin(),
     new webpack.optimize.UglifyJsPlugin({
-      compress: {warnings: false}
+      compress: {
+        warnings: false
+      }
     })
   ],
   stats: {

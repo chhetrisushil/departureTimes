@@ -14,6 +14,12 @@ class Main {
     console.log(t());
     console.log(ex());
   }
+
+  testing() {
+    return 'test str';
+  }
 }
 
 let main = new Main('hi');
+
+export default Main;
