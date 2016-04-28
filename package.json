@@ -6,7 +6,7 @@
   "scripts": {
     "start": "NODE_ENV=prod babel-node ./server/server.js --presets es2015,stage-2",
     "dev": "NODE_ENV=dev nodemon ./server/server.js --exec babel-node --presets es2015,stage-2",
-    "test": "NODE_ENV=test karma start karma.config.js --single-run --browsers PhantomJS && codecov &lt; ./coverage/lcov/lcov.info",
+    "test": "NODE_ENV=test karma start karma.config.js --single-run --browsers PhantomJS && codecov < ./coverage/lcov/lcov.info",
     "test-dev": "NODE_ENV=test karma start karma.config.js",
     "build": "NODE_ENV=prod webpack",
     "build-dev": "NODE_ENV=dev webpack --watch",
