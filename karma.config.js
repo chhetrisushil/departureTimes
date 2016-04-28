@@ -3,7 +3,10 @@
  * Copyright (C) 2016 Sushil Chhetri <chhetrisushil@gmail.com>
  */
 var webpackConfig = require('./webpack.config.js');
-webpackConfig.entry = {};
+var entry = webpackConfig.entry;
+var preprocessors = {};
+
+preprocessors[entry] = ['webpack', 'sourcemap'];
 
 module.exports = function(config) {
   config.set({
@@ -18,10 +21,7 @@ module.exports = function(config) {
 
 
     // list of files / patterns to load in the browser
-    files: [
-      './client/static/js/app/app.js',
-      './test/**/*.js'
-    ],
+    files: [entry],
 
     webpack: webpackConfig,
     webpackMiddleware: {
@@ -29,16 +29,12 @@ module.exports = function(config) {
     },
 
     // list of files to exclude
-    exclude: [
-    ],
+    exclude: [],
 
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-    preprocessors: {
-      './client/static/js/app/app.js': ['webpack', 'sourcemap', 'coverage'],
-      './test/**/*.js': ['webpack', 'sourcemap']
-    },
+    preprocessors: preprocessors,
 
 
     // test results reporter to use
@@ -78,8 +74,8 @@ module.exports = function(config) {
     concurrency: Infinity,
 
     coverageReporter: {
-        type: 'html',
-        dir: 'coverage/'
+      type: 'html',
+      dir: 'coverage/'
     }
   });
 };

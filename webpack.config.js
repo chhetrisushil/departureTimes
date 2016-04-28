@@ -5,25 +5,21 @@
 var webpack = require('webpack');
 
 module.exports = {
-  entry: './client/static/es6/main.js',
+  entry: (process.env.NODE_ENV === 'test' ? './test/Initial.Spec.js' : './client/static/es6/main.js'),
   output: {
     path: './client/static/js/app',
     filename: 'app.js'
   },
   module: {
-    preLoaders: [
-      // instrument only testing sources with Istanbul
-      {
-        test: /\.js$/,
-        include: './client/static/es6',
-        loader: 'isparta'
-      }
-    ],
     loaders: [{
       loader: 'babel-loader',
       query: {
         presets: ['es2015', 'stage-2']
       }
+    }, {
+      // instrument only testing sources with Istanbul
+      loader: 'isparta',
+      exclude: /test/
     }]
   },
   plugins: [
