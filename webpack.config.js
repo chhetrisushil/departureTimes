@@ -3,6 +3,41 @@
  * Copyright (C) 2016 Sushil Chhetri <chhetrisushil@gmail.com>
  */
 var webpack = require('webpack');
+var env = process.env.NODE_ENV;
+
+function getLoaders() {
+  var loaders = [{
+    loader: 'babel-loader',
+    query: {
+      presets: ['es2015', 'stage-2']
+    }
+  }];
+
+  if (env === 'test') {
+    loaders.push({
+      // instrument only testing sources with Istanbul
+      loader: 'isparta',
+      exclude: /test/
+    });
+  }
+
+  return loaders;
+}
+
+function getPlugins() {
+  var plugins = [new webpack.NoErrorsPlugin()];
+
+  if (env === 'prod') {
+    plugins.push(new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      }
+    }));
+  }
+
+  return plugins;
+}
+
 
 module.exports = {
   entry: (process.env.NODE_ENV === 'test' ? './test/Initial.Spec.js' : './client/static/es6/main.js'),
@@ -11,25 +46,9 @@ module.exports = {
     filename: 'app.js'
   },
   module: {
-    loaders: [{
-      loader: 'babel-loader',
-      query: {
-        presets: ['es2015', 'stage-2']
-      }
-    }, {
-      // instrument only testing sources with Istanbul
-      loader: 'isparta',
-      exclude: /test/
-    }]
+    loaders: getLoaders()
   },
-  plugins: [
-    new webpack.NoErrorsPlugin(),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
-    })
-  ],
+  plugins: getPlugins(),
   stats: {
     colors: true
   },
