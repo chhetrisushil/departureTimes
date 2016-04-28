@@ -9,7 +9,8 @@
     "test": "NODE_ENV=test karma start karma.config.js --single-run --browsers PhantomJS",
     "test-dev": "NODE_ENV=test karma start karma.config.js",
     "build": "NODE_ENV=prod webpack",
-    "build-dev": "NODE_ENV=dev webpack --watch"
+    "build-dev": "NODE_ENV=dev webpack --watch",
+    "heroku-postbuild": "npm run build"
   },
   "repository": {
     "type": "git",
