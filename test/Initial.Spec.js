@@ -4,7 +4,7 @@
  */
 /*jshint esnext: true*/
 import Main from './../client/static/es6/main.js';
-import T from './../client/static/es6/module.js';
+import t from './../client/static/es6/module.js';
 
 describe('Initial test', () => {
   it('should pass', () => {
@@ -17,6 +17,6 @@ describe('Initial test', () => {
   });
 
   it('should execute from module', () => {
-    assert.equal('testing', T());
+    assert.equal('testing', t());
   });
 });
