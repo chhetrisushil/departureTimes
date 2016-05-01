@@ -7,6 +7,7 @@
 import 'es6-shim';
 import 'reflect-metadata';
 import 'rxjs';
+import {deprecate} from 'core-decorators';
 import Core from 'angular2/core';
 import {
   default as t, Exported as ex
@@ -20,6 +21,9 @@ class Main {
     console.log(ex());
   }
 
+  //start-non-standard
+  @deprecate
+  //end-non-standard
   testing() {
     return 'test str';
   }
