@@ -2,13 +2,15 @@
  * Initial.Spec.js
  * Copyright (C) 2016 Sushil Chhetri <chhetrisushil@gmail.com>
  */
-import {expect as expect} from 'chai';
+import {
+  expect as expect
+} from 'chai';
 import Main from './../client/static/es6/main.js';
 import t from './../client/static/es6/module.js';
 
 describe('Initial test', () => {
   it('should pass', () => {
-    expect(1+1).to.be.equal(2);
+    expect(1 + 1).to.be.equal(2);
   });
 
   it('should return test str', () => {

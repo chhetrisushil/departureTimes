@@ -18,12 +18,12 @@ import {
   Exported as ex
 } from './module.js';
 
-//start-non-standard
+/*start-non-standard*/
 @Component({
     selector: 'my-app',
     template: '<h1>Hello World</h1>'
   })
-  //end-non-standard
+  /*end-non-standard*/
 class Main {
   constructor(str) {
     console.log(str);

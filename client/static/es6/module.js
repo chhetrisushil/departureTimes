@@ -6,8 +6,7 @@
 
 let Exported = () => 'exported';
 
-export
-default () => 'testing';
+export default () => 'testing';
 
 export {
   Exported as Exported
