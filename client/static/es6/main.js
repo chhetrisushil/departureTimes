@@ -4,10 +4,8 @@
  */
 /*globals console: true*/
 
-import 'es6-shim';
 import 'reflect-metadata';
 import 'zone.js';
-import 'rxjs';
 import {
   deprecate
 } from 'core-decorators';
