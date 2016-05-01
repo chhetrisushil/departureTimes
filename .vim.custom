@@ -4,4 +4,4 @@ set expandtab       " use appropriate number of spaces when tabbing
 let g:email="chhetrisushil@gmail.com"
 let g:username="Sushil Chhetri"
 let g:java_classpath="/usr/lib/jvm/java-8-openjdk-amd64/lib"
-let g:config_Beautifier={"js": {"indent_style": "space", "indent_size": 2}, "json": {"indent_style": "space", "indent_size": 2}}
+let g:config_Beautifier={"js": {"indent_style": "space", "indent_size": 2, "path": "/usr/local/lib/node_modules/js-beautify/js/lib/beautify.js", "bin": "node"}, "json": {"indent_style": "space", "indent_size": 2}}

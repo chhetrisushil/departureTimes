@@ -7,13 +7,23 @@
 import 'es6-shim';
 import 'reflect-metadata';
 import 'rxjs';
-import {deprecate} from 'core-decorators';
-import Core from 'angular2/core';
 import {
-  default as t, Exported as ex
-}
-from './module.js';
+  deprecate
+} from 'core-decorators';
+import {
+  Component
+} from 'angular2/core';
+import {
+  default as t,
+  Exported as ex
+} from './module.js';
 
+//start-non-standard
+@Component({
+    selector: 'my-app',
+    template: '<h1>Hello World</h1>'
+  })
+  //end-non-standard
 class Main {
   constructor(str) {
     console.log(str);
@@ -21,9 +31,6 @@ class Main {
     console.log(ex());
   }
 
-  //start-non-standard
-  @deprecate
-  //end-non-standard
   testing() {
     return 'test str';
   }
@@ -31,5 +38,4 @@ class Main {
 
 let main = new Main('hi');
 
-export
-default Main;
+export default Main;
