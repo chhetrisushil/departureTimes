@@ -5,17 +5,24 @@
 import {
   expect as expect
 } from 'chai';
-import Main from './../client/static/es6/main.js';
+import jsdom from 'mocha-jsdom';
+import {
+  Main
+} from './../client/static/es6/main.js';
 import t from './../client/static/es6/module.js';
 
 describe('Initial test', () => {
+  jsdom();
+
   it('should pass', () => {
     expect(1 + 1).to.be.equal(2);
   });
 
   it('should return test str', () => {
-    var main = new Main('from test');
+    document.body.appendChild(document.createElement('my-app'));
+    var main = new Main();
     expect(main.testing()).to.be.equal('test str');
+    expect(main.name).to.be.equal('Sushil');
   });
 
   it('should execute from module', () => {

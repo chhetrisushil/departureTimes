@@ -6,6 +6,7 @@
 
 import 'es6-shim';
 import 'reflect-metadata';
+import 'zone.js';
 import 'rxjs';
 import {
   deprecate
@@ -14,21 +15,18 @@ import {
   Component
 } from 'angular2/core';
 import {
-  default as t,
-  Exported as ex
-} from './module.js';
+  bootstrap
+} from 'angular2/platform/browser';
 
 /*start-non-standard*/
 @Component({
     selector: 'my-app',
-    template: '<h1>Hello World</h1>'
+    template: '<h1>Hello {{name}}!!!</h1>'
   })
   /*end-non-standard*/
 class Main {
   constructor(str) {
-    console.log(str);
-    console.log(t());
-    console.log(ex());
+    this.name = 'Sushil';
   }
 
   testing() {
@@ -36,6 +34,13 @@ class Main {
   }
 }
 
-let main = new Main('hi');
+function start() {
+  bootstrap(Main);
+}
 
-export default Main;
+window.start = start;
+
+export default start;
+export {
+  Main as Main
+};
