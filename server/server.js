@@ -5,12 +5,14 @@
 /*jshint esnext: true*/
 import express from 'express';
 import morgan from 'morgan';
+import compression from 'compression';
 
 class Server {
   constructor() {
     let app = this.app = express();
 
     app.set('port', (process.env.PORT || 3000));
+    app.use(compression());
     app.use(morgan('combined'));
     app.use(express.static('client/static/'));
     app.set('views', 'client/pages');
