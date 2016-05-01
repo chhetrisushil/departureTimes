@@ -17,7 +17,6 @@ class Main {
     console.log(str);
     console.log(t());
     console.log(ex());
-    console.log(Core);
   }
 
   testing() {
