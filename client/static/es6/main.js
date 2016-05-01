@@ -4,6 +4,7 @@
  */
 /*globals console: true*/
 
+import 'es6-shim';
 import 'reflect-metadata';
 import 'rxjs';
 import Core from 'angular2/core';

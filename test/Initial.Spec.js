@@ -2,7 +2,6 @@
  * Initial.Spec.js
  * Copyright (C) 2016 Sushil Chhetri <chhetrisushil@gmail.com>
  */
-import 'es6-shim';
 import {expect as expect} from 'chai';
 import Main from './../client/static/es6/main.js';
 import t from './../client/static/es6/module.js';
