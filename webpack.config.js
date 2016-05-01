@@ -8,8 +8,10 @@ var env = process.env.NODE_ENV;
 function getLoaders() {
   var loaders = [{
     loader: 'babel-loader',
+    exclude: /node_modules/,
     query: {
-      presets: ['es2015', 'stage-2']
+      presets: ['es2015', 'stage-2'],
+      compact: false
     }
   }];
 
@@ -17,7 +19,7 @@ function getLoaders() {
     loaders.push({
       // instrument only testing sources with Istanbul
       loader: 'isparta',
-      exclude: /test/
+      exclude: /test|node_modules/
     });
   }
 

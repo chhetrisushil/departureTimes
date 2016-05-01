@@ -21,7 +21,9 @@ module.exports = function(config) {
 
 
     // list of files / patterns to load in the browser
-    files: [entry],
+    files: [
+      entry
+    ],
 
     webpack: webpackConfig,
     webpackMiddleware: {
@@ -75,10 +77,13 @@ module.exports = function(config) {
 
     coverageReporter: {
       dir: 'coverage/',
-      reporters: [
-        {type: 'html', subdir: 'html/'},
-        {type: 'lcovonly', subdir: '/lcov'}
-      ]
+      reporters: [{
+        type: 'html',
+        subdir: 'html/'
+      }, {
+        type: 'lcovonly',
+        subdir: '/lcov'
+      }]
     }
   });
 };
